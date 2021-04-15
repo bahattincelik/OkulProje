@@ -86,8 +86,8 @@ public class Islemler {
         switch (tercih){
             case "1": ekle();
                 break;
-//            case "2": ara();
-//                break;
+            case "2": ara();
+                break;
 //            case "3": listele();
 //                break;
 //            case "4": silme();
@@ -124,6 +124,12 @@ public class Islemler {
             String sinif = scan.next();
             Ogrenci ogrenci = new Ogrenci(adSoyad,kimlikNo,yas,numara,sinif);
             ogrenciListesi.add(ogrenci);
+            System.out.println("Eklenen Kisi : ");
+            System.out.println("Adi Soyadi : "+adSoyad+
+                               ", Kimlik Numarasi : " +kimlikNo+
+                                ", Yasi : " +yas+
+                                ", Okul numara : "+numara+
+                                ", Sinifi : "+sinif);
         }
         else {
             System.out.println("Sicil No Giriniz : ");
@@ -132,6 +138,32 @@ public class Islemler {
             String bolum = scan.next();
             Ogretmen ogrenci = new Ogretmen(adSoyad,kimlikNo,yas,sicilNo,bolum);
             ogretmenListesi.add(ogrenci);
+            System.out.println("Eklenen Kisi : ");
+            System.out.println("Adi Soyadi : "+adSoyad+
+                    ", Kimlik Numarasi : " +kimlikNo+
+                    ", Yasi : " +yas+
+                    ", Sicil numara : "+sicilNo+
+                    ", Bolumu : "+bolum);
+
+        }
+
+        System.out.println(kisiTuru+" Ekleme islemi basarili bir sekilde tamamlanmistir.");
+        islemMenusu();
+    }
+    private void ara(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("=========== "+kisiTuru+" ARAMA SAYFASI ==========");
+        System.out.println("Lutfen aramak istediginiz kisinin kimlik mumarasini giriniz : ");
+        String kimlik = scan.next();
+
+
+        if (kisiTuru.equals("OGRENCI")){
+            for (Kisi each : ogrenciListesi)
+                  {
+                if (each.getKimlikNo().toString().equals(kimlik)){
+                    System.out.println(each.toString());
+                }
+            }
         }
         islemMenusu();
     }
