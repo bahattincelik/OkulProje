@@ -216,37 +216,46 @@ public class Islemler {
     private void silme() {
         Scanner scan = new Scanner(System.in);
         System.out.println("=========== SILINEN "+kisiTuru+" ==========");
-        System.out.println("Lutfen aramak istediginiz kisinin kimlik mumarasini giriniz : ");
+        System.out.println("Lutfen silmek istediginiz kisinin kimlik mumarasini giriniz : ");
         String kimlik = scan.next();
 
         if (kisiTuru.equals("OGRENCI")){
             for (Kisi each : ogrenciListesi)
             {
-                if (each.getKimlikNo().toString().equals(kimlik)){
-                    System.out.println(kimlik+ " numarasi ogrenci silinmistir ");
+                if (each.getKimlikNo().equals(kimlik)){
+                    System.out.println(each.toString()+ " numarasi ogrenci silinmistir ");
 
                     ogrenciListesi.remove(each);
+                    System.out.println();
+                    islemMenusu();
                 }
-                else{
-                    System.out.println(kimlik+ " numarasi ile aradiginiz ogrenci bulunamamistir. ");
-                }
+
+
+
             }
+            System.out.println(kimlik+ " numarasi ile aradiginiz ogrenci bulunamamistir. ");
+            System.out.println();
+            islemMenusu();
         }
         else {
 
             for (Kisi each : ogretmenListesi)
             {
-                if (each.getKimlikNo().toString().equals(kimlik)){
-                    System.out.println(kimlik+ " numarasi ogretmen silinmistir ");
+                if (each.getKimlikNo().equals(kimlik)){
+                    System.out.println(each.toString()+ " numarasi ogretmen silinmistir ");
                     ogretmenListesi.remove(each);
+                    System.out.println();
+                    islemMenusu();
                 }
-                else{
-                    System.out.println(kimlik+ " numarasi ile aradiginiz ogretmen bulunamamistir. ");
-                }
+
             }
+
+                System.out.println(kimlik+ " numarasi ile aradiginiz ogretmen bulunamamistir. ");
+            System.out.println();
+            islemMenusu();
+
         }
-        System.out.println();
-        islemMenusu();
+
 
     }
 }
