@@ -39,7 +39,11 @@ public class Kisi {
         this.yas = yas;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return
+                "Adi Soyadi :'" + adSoyadi + '\'' +
+                ", Tc Kimlik No : '" + kimlikNo + '\'' +
+                ", Yasi : " + yas;
+    }
 }

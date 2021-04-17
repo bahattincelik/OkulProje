@@ -40,9 +40,20 @@ import java.util.Scanner;
 
 public class Islemler {
 
-    private List<Kisi> ogrenciListesi = new ArrayList<>();
-    private List<Kisi> ogretmenListesi = new ArrayList<>();
+    private  List<Kisi> ogrenciListesi = new ArrayList<>();
+    private  List<Kisi> ogretmenListesi = new ArrayList<>();
     private String kisiTuru;
+
+    public void topluOgrenciOgretmenEkle(){
+        ogrenciListesi.add(new Ogrenci("Ahmet Can", "1000", 16, "95", "11"));
+        ogrenciListesi.add(new Ogrenci("Kemal Turk", "1002", 15, "56", "11"));
+        ogrenciListesi.add(new Ogrenci("Ayse Yilmaz", "1004", 14, "95", "9"));
+
+        ogretmenListesi.add(new Ogretmen("Mehmet Celik", "1006", 24, "Matematik", "3400"));
+        ogretmenListesi.add(new Ogretmen("Cenk Caglar", "1008", 43, "Turkce", "1206"));
+        ogretmenListesi.add(new Ogretmen("Yesim Yesil", "1010", 29, "Ingilizce", "2453"));
+
+    }
 
     public void anaMenu() {
         Scanner scan = new Scanner(System.in);
@@ -88,10 +99,10 @@ public class Islemler {
                 break;
             case "2": ara();
                 break;
-//            case "3": listele();
-//                break;
-//            case "4": silme();
-//                break;
+            case "3": listele();
+                break;
+            case "4": silme();
+                break;
             case "5": anaMenu();
                 break;
             case "Q": cikis();
@@ -107,6 +118,7 @@ public class Islemler {
     private void cikis(){
         System.out.println("Programi kullandiginiz icin tesekkuler...");
     }
+
     private void ekle(){
         Scanner scan = new Scanner(System.in);
         System.out.println("=========== "+kisiTuru+" EKLEME SAYFASI ==========");
@@ -161,10 +173,80 @@ public class Islemler {
             for (Kisi each : ogrenciListesi)
                   {
                 if (each.getKimlikNo().toString().equals(kimlik)){
+                    System.out.println(kimlik+ " numarasi ile aradiginiz ogrenci ");
+
                     System.out.println(each.toString());
+                }
+                else{
+                    System.out.println(kimlik+ " numarasi ile aradiginiz ogrenci bulunamamistir. ");
                 }
             }
         }
+        else {
+            System.out.println(kimlik+ " numarasi ile aradiginiz ogretmen ");
+            for (Kisi each : ogretmenListesi)
+            {
+                if (each.getKimlikNo().toString().equals(kimlik)){
+                    System.out.println(kimlik+ " numarasi ile aradiginiz ogretmen ");
+                    System.out.println(each.toString());
+                }
+                else{
+                    System.out.println(kimlik+ " numarasi ile aradiginiz ogretmen bulunamamistir. ");
+                }
+            }
+        }
+        System.out.println();
         islemMenusu();
+    }
+    private void listele() {
+        System.out.println("=========== "+kisiTuru+" LISTESI ==========");
+        if (kisiTuru.equals("OGRENCI")){
+            for (Kisi each: ogrenciListesi) {
+                System.out.println(each.toString());
+            }
+        }
+        else {
+            for (Kisi each: ogretmenListesi) {
+                System.out.println(each.toString());
+            }
+        }
+        System.out.println();
+        islemMenusu();
+    }
+    private void silme() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("=========== SILINEN "+kisiTuru+" ==========");
+        System.out.println("Lutfen aramak istediginiz kisinin kimlik mumarasini giriniz : ");
+        String kimlik = scan.next();
+
+        if (kisiTuru.equals("OGRENCI")){
+            for (Kisi each : ogrenciListesi)
+            {
+                if (each.getKimlikNo().toString().equals(kimlik)){
+                    System.out.println(kimlik+ " numarasi ogrenci silinmistir ");
+
+                    ogrenciListesi.remove(each);
+                }
+                else{
+                    System.out.println(kimlik+ " numarasi ile aradiginiz ogrenci bulunamamistir. ");
+                }
+            }
+        }
+        else {
+
+            for (Kisi each : ogretmenListesi)
+            {
+                if (each.getKimlikNo().toString().equals(kimlik)){
+                    System.out.println(kimlik+ " numarasi ogretmen silinmistir ");
+                    ogretmenListesi.remove(each);
+                }
+                else{
+                    System.out.println(kimlik+ " numarasi ile aradiginiz ogretmen bulunamamistir. ");
+                }
+            }
+        }
+        System.out.println();
+        islemMenusu();
+
     }
 }

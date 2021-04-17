@@ -12,6 +12,10 @@ public class Ogrenci extends Kisi {
         this.sinif = sinif;
     }
 
+    public Ogrenci() {
+
+    }
+
     public String getNumara() {
         return numara;
     }
@@ -28,6 +32,11 @@ public class Ogrenci extends Kisi {
         this.sinif = sinif;
     }
 
-
-
+    @Override
+    public String toString() {
+        return
+                super.toString()+
+                ", Okul Numarasi : '" + numara + '\'' +
+                ", Sinifi : '" + sinif+ '\'';
+    }
 }

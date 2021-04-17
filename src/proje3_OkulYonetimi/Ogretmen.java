@@ -12,6 +12,10 @@ public class Ogretmen extends Kisi {
         this.sicilNo = sicilNo;
     }
 
+    public Ogretmen() {
+
+    }
+
     public String getBolum() {
         return bolum;
     }
@@ -26,5 +30,13 @@ public class Ogretmen extends Kisi {
 
     public void setSicilNo(String sicilNo) {
         this.sicilNo = sicilNo;
+    }
+
+    @Override
+    public String toString() {
+        return
+                super.toString() +
+                ", Bolumu : '" + bolum + '\'' +
+                ", Sicil Numarasi : '" + sicilNo+ '\'';
     }
 }

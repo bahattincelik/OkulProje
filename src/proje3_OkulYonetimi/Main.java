@@ -6,7 +6,9 @@ public class Main {
 
         Islemler islem = new Islemler();
 
+        islem.topluOgrenciOgretmenEkle();
         islem.anaMenu();
+
     }
 
 }
